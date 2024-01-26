@@ -13,11 +13,11 @@
 // 2 --> 3 + 5 = 8
 
 function rowSumOddNumbers(n) {
-  let lastNumber = n ** +(n - 1);
   let result = 0;
+  let lastNumber = n * n + (n - 1);
   for (let i = 0; i < n; i++) {
     result += lastNumber;
-    lastNumber--;
+    lastNumber -= 2;
   }
   return result;
 }
