@@ -10,10 +10,11 @@
 const maxSequence = function (arr) {
   return arr.reduce((acc, curr, index) => {
     arr.slice(index).reduce((subAcc, subCurr) => {
+      subAcc += subCurr;
       if (subAcc > acc) {
         acc = subAcc;
       }
-      return subAcc + subCurr;
+      return subAcc;
     }, 0);
     return acc;
   }, 0);
