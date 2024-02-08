@@ -88,6 +88,52 @@ class RomanNumerals {
   }
 
   static fromRoman(str) {
-    return 4;
+    let result = "";
+    let remainder = num;
+    while (remainder >= 1000) {
+      result += "M";
+      remainder -= 1000;
+    }
+    while (remainder >= 900) {
+      result += "CM";
+      remainder -= 900;
+    }
+    while (remainder >= 500) {
+      result += "D";
+      remainder -= 500;
+    }
+    while (remainder >= 100) {
+      result += "C";
+      remainder -= 100;
+    }
+    while (remainder >= 90) {
+      result += "XC";
+      remainder -= 90;
+    }
+    while (remainder >= 50) {
+      result += "L";
+      remainder -= 50;
+    }
+    while (remainder >= 10) {
+      result += "X";
+      remainder -= 10;
+    }
+    while (remainder === 9) {
+      result += "IX";
+      remainder -= 9;
+    }
+    while (remainder >= 5) {
+      result += "V";
+      remainder -= 5;
+    }
+    while (remainder >= 4) {
+      result += "IV";
+      remainder -= 4;
+    }
+    while (remainder >= 1) {
+      result += "I";
+      remainder -= 1;
+    }
+    return result;
   }
 }
