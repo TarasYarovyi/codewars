@@ -52,6 +52,10 @@ class RomanNumerals {
       result += "D";
       remainder -= 500;
     }
+    while (remainder >= 400) {
+      result += "CD";
+      remainder -= 400;
+    }
     while (remainder >= 100) {
       result += "C";
       remainder -= 100;
@@ -63,6 +67,10 @@ class RomanNumerals {
     while (remainder >= 50) {
       result += "L";
       remainder -= 50;
+    }
+    while (remainder >= 40) {
+      result += "XL";
+      remainder -= 40;
     }
     while (remainder >= 10) {
       result += "X";
@@ -88,51 +96,59 @@ class RomanNumerals {
   }
 
   static fromRoman(str) {
-    let result = "";
-    let remainder = num;
-    while (remainder >= 1000) {
-      result += "M";
-      remainder -= 1000;
+    let result = 0;
+    let remainder = str;
+    while (remainder.substr(0, 1) === "M") {
+      result += 1000;
+      remainder = remainder.slice(1);
     }
-    while (remainder >= 900) {
-      result += "CM";
-      remainder -= 900;
+    while (remainder.substr(0, 2) === "CM") {
+      result += 900;
+      remainder = remainder.slice(2);
     }
-    while (remainder >= 500) {
-      result += "D";
-      remainder -= 500;
+    while (remainder.substr(0, 1) === "D") {
+      result += 500;
+      remainder = remainder.slice(1);
     }
-    while (remainder >= 100) {
-      result += "C";
-      remainder -= 100;
+    while (remainder.substr(0, 2) === "CD") {
+      result += 400;
+      remainder = remainder.slice(2);
     }
-    while (remainder >= 90) {
-      result += "XC";
-      remainder -= 90;
+    while (remainder.substr(0, 1) === "C") {
+      result += 100;
+      remainder = remainder.slice(1);
     }
-    while (remainder >= 50) {
-      result += "L";
-      remainder -= 50;
+    while (remainder.substr(0, 2) === "XC") {
+      result += 90;
+      remainder = remainder.slice(2);
     }
-    while (remainder >= 10) {
-      result += "X";
-      remainder -= 10;
+    while (remainder.substr(0, 1) === "L") {
+      result += 50;
+      remainder = remainder.slice(1);
     }
-    while (remainder === 9) {
-      result += "IX";
-      remainder -= 9;
+    while (remainder.substr(0, 2) === "XL") {
+      result += 40;
+      remainder = remainder.slice(2);
     }
-    while (remainder >= 5) {
-      result += "V";
-      remainder -= 5;
+    while (remainder.substr(0, 1) === "X") {
+      result += 10;
+      remainder = remainder.slice(1);
     }
-    while (remainder >= 4) {
-      result += "IV";
-      remainder -= 4;
+    while (remainder.substr(0, 2) === "IX") {
+      result += 9;
+      remainder = remainder.slice(2);
     }
-    while (remainder >= 1) {
-      result += "I";
-      remainder -= 1;
+    while (remainder.substr(0, 1) === "V") {
+      result += 5;
+      remainder = remainder.slice(1);
+    }
+    while (remainder.substr(0, 2) === "IV") {
+      result += 4;
+      remainder = remainder.slice(2);
+    }
+    while (remainder.substr(0, 1) === "I") {
+      result += 1;
+      remainder = remainder.slice(1);
     }
     return result;
   }
