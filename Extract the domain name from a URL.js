@@ -6,5 +6,7 @@
 // * url = "https://www.cnet.com"                -> domain name = cnet"
 
 function domainName(url) {
-  return url.match(/(?<=(http:\/\/(www.)))[a-z\-]*/gm)[0];
+  return url.match(
+    /(?<=(http:\/\/(www.)))[a-z\-]*|(?<=(https:\/\/(www.)))[a-z\-]*|(?<=(http:\/\/(www.)))[a-z\-]*/gm
+  )[0];
 }
