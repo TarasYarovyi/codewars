@@ -7,6 +7,6 @@
 
 function domainName(url) {
   return url.match(
-    /(?<=(http:\/\/(www.)))[a-z\-]*|(?<=(https:\/\/(www.)))[a-z\-]*|(?<=(http:\/\/(www.)))[a-z\-]*/gm
+    /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/gim
   )[0];
 }
