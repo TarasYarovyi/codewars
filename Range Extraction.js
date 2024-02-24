@@ -13,16 +13,22 @@
 
 function solution(list) {
   // TODO: complete solution
-  const rangeArr = [];
-  while (list.length) {
-    rangeArr.push(
-      list.reduce((acc, el) => {
-        if (acc.length === 0 || el - acc[acc.length - 1] === 1) {
-          acc.push(el);
-          list.shift();
-        }
-      }, [])
-    );
-  }
-  return rangeArr;
+
+  const rangeArr = list.reduce(
+    (acc, el) => {
+      if (el - acc[acc.length - 1] === 1) {
+        acc[acc.length - 1].push(el);
+      }
+
+      return acc;
+    },
+    [list[0]]
+  );
+
+  console.log(rangeArr);
 }
+
+solution([
+  -10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18,
+  19, 20,
+]);
