@@ -15,24 +15,26 @@ function solution(list) {
   // TODO: complete solution
 
   const rangeArr = list.reduce((acc, el) => {
-    const prevRange = acc[acc.length - 1];
+    let prevRange = acc[acc.length - 1];
 
     if (prevRange && el - prevRange[prevRange.length - 1] === 1) {
       prevRange.push(el);
     } else {
       acc.push([el]);
     }
-
     return acc;
   }, []);
 
-  const result = rangeArr.reduce((acc, el) => {
-    return acc + Math.min(...el) + "-" + Math.max(...el);
-  }, "");
-  console.log(result);
-}
+  const result = rangeArr
+    .reduce((acc, el) => {
+      if (el.length > 2) {
+        acc.push(Math.min(...el) + "-" + Math.max(...el));
+      } else {
+        acc.push(el);
+      }
 
-solution([
-  -10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18,
-  19, 20,
-]);
+      return acc;
+    }, [])
+    .join(",");
+  return result;
+}
