@@ -14,18 +14,22 @@
 function solution(list) {
   // TODO: complete solution
 
-  const rangeArr = list.reduce(
-    (acc, el) => {
-      if (el - acc[acc.length - 1] === 1) {
-        acc[acc.length - 1].push(el);
-      }
+  const rangeArr = list.reduce((acc, el) => {
+    const prevRange = acc[acc.length - 1];
 
-      return acc;
-    },
-    [list[0]]
-  );
+    if (prevRange && el - prevRange[prevRange.length - 1] === 1) {
+      prevRange.push(el);
+    } else {
+      acc.push([el]);
+    }
 
-  console.log(rangeArr);
+    return acc;
+  }, []);
+
+  const result = rangeArr.reduce((acc, el) => {
+    return acc + Math.min(...el) + "-" + Math.max(...el);
+  }, "");
+  console.log(result);
 }
 
 solution([
