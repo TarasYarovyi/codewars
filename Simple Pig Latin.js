@@ -10,9 +10,13 @@ function pigIt(str) {
   return str
     .split(" ")
     .map((word) => {
-      return word.substring(1) + word[0] + "ay";
+      return /\w/.test(word) ? word.substring(1) + word[0] + "ay" : word;
     })
     .join(" ");
 }
 
-pigIt("Taras Yarovyi");
+// or
+
+function pigIt(str) {
+  return str.replace(/(\w)(\w*)/g, "$2$1ay");
+}
