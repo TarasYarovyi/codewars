@@ -14,3 +14,58 @@
 // For illustration purposes, 0 and 1 will be represented as ░░ and ▓▓ blocks respectively (PHP: plain black and white squares). You can take advantage of the htmlize function to get a text representation of the universe, e.g.:
 
 // console.log(htmlize(cells));
+
+const array = [
+  [0, 1, 0],
+  [0, 0, 1],
+  [1, 1, 1],
+];
+
+function getGeneration(cells, generations) {
+  const biggerArr = [
+    [0, 0, 0, 0, 0],
+    [0, ...cells[0], 0],
+    [0, ...cells[1], 0],
+    [0, ...cells[2], 0],
+    [0, 0, 0, 0, 0],
+  ];
+  console.log(biggerArr);
+
+  //   for (let i = 0; i < cells.length; i++) {
+  //     for (let j = 0; j < cells[i].length; j++) {
+  //       let neighbours = 0;
+
+  //       if (cells[i - 1] && cells[i - 1][j - 1]) {
+  //         neighbours++;
+  //       }
+  //       if (cells[i - 1] && cells[i - 1][j]) {
+  //         neighbours++;
+  //       }
+  //       if (cells[i - 1] && cells[i - 1][j + 1]) {
+  //         neighbours++;
+  //       }
+
+  //       if (cells[i] && cells[i][j - 1]) {
+  //         neighbours++;
+  //       }
+
+  //       if (cells[i] && cells[i][j + 1]) {
+  //         neighbours++;
+  //       }
+
+  //       if (cells[i + 1] && cells[i + 1][j - 1]) {
+  //         neighbours++;
+  //       }
+  //       if (cells[i + 1] && cells[i + 1][j]) {
+  //         neighbours++;
+  //       }
+  //       if (cells[i + 1] && cells[i + 1][j + 1]) {
+  //         neighbours++;
+  //       }
+
+  //       console.log(neighbours);
+  //     }
+  //   }
+}
+
+getGeneration(array, 2);
