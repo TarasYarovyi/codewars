@@ -5,10 +5,10 @@
 
 // The rules of the game are:
 
-// Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
-// Any live cell with more than three live neighbours dies, as if by overcrowding.
-// Any live cell with two or three live neighbours lives on to the next generation.
-// Any dead cell with exactly three live neighbours becomes a live cell.
+// Any live cell with fewer than two live neighboursQty dies, as if caused by underpopulation.
+// Any live cell with more than three live neighboursQty dies, as if by overcrowding.
+// Any live cell with two or three live neighboursQty lives on to the next generation.
+// Any dead cell with exactly three live neighboursQty becomes a live cell.
 // Each cell's neighborhood is the 8 cells immediately around it (i.e. Moore Neighborhood). The universe is infinite in both the x and y dimensions and all cells are initially dead - except for those specified in the arguments. The return value should be a 2d array cropped around all of the living cells. (If there are no living cells, then return [[]].)
 
 // For illustration purposes, 0 and 1 will be represented as ░░ and ▓▓ blocks respectively (PHP: plain black and white squares). You can take advantage of the htmlize function to get a text representation of the universe, e.g.:
@@ -22,50 +22,71 @@ const array = [
 ];
 
 function getGeneration(cells, generations) {
-  const biggerArr = [
+  const currentArr = [
     [0, 0, 0, 0, 0],
     [0, ...cells[0], 0],
     [0, ...cells[1], 0],
     [0, ...cells[2], 0],
     [0, 0, 0, 0, 0],
   ];
-  console.log(biggerArr);
 
-  //   for (let i = 0; i < cells.length; i++) {
-  //     for (let j = 0; j < cells[i].length; j++) {
-  //       let neighbours = 0;
+  const nextArr = new Array(5).fill(new Array(5));
 
-  //       if (cells[i - 1] && cells[i - 1][j - 1]) {
-  //         neighbours++;
-  //       }
-  //       if (cells[i - 1] && cells[i - 1][j]) {
-  //         neighbours++;
-  //       }
-  //       if (cells[i - 1] && cells[i - 1][j + 1]) {
-  //         neighbours++;
-  //       }
+  for (let i = 0; i < currentArr.length; i++) {
+    for (let j = 0; j < currentArr[i].length; j++) {
+      let neighboursQty = 0;
 
-  //       if (cells[i] && cells[i][j - 1]) {
-  //         neighbours++;
-  //       }
+      if (currentArr[i - 1] && currentArr[i - 1][j - 1]) {
+        neighboursQty++;
+      }
+      if (currentArr[i - 1] && currentArr[i - 1][j]) {
+        neighboursQty++;
+      }
+      if (currentArr[i - 1] && currentArr[i - 1][j + 1]) {
+        neighboursQty++;
+      }
 
-  //       if (cells[i] && cells[i][j + 1]) {
-  //         neighbours++;
-  //       }
+      if (currentArr[i] && currentArr[i][j - 1]) {
+        neighboursQty++;
+      }
 
-  //       if (cells[i + 1] && cells[i + 1][j - 1]) {
-  //         neighbours++;
-  //       }
-  //       if (cells[i + 1] && cells[i + 1][j]) {
-  //         neighbours++;
-  //       }
-  //       if (cells[i + 1] && cells[i + 1][j + 1]) {
-  //         neighbours++;
-  //       }
+      if (currentArr[i] && currentArr[i][j + 1]) {
+        neighboursQty++;
+      }
 
-  //       console.log(neighbours);
-  //     }
-  //   }
+      if (currentArr[i + 1] && currentArr[i + 1][j - 1]) {
+        neighboursQty++;
+      }
+      if (currentArr[i + 1] && currentArr[i + 1][j]) {
+        neighboursQty++;
+      }
+      if (currentArr[i + 1] && currentArr[i + 1][j + 1]) {
+        neighboursQty++;
+      }
+
+      switch (neighboursQty) {
+        case 0:
+          nextArr[i][j] = 0;
+          break;
+        case 1:
+          nextArr[i][j] = 0;
+          break;
+        case 2:
+          nextArr[i][j] = currentArr[i][j];
+          break;
+        case 3:
+          nextArr[i][j] = 1;
+          break;
+        case 4:
+          nextArr[i][j] = 0;
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
+  console.log(currentArr, nextArr);
 }
 
 getGeneration(array, 2);
