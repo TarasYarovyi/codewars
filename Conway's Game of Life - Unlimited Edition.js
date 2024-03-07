@@ -63,7 +63,7 @@ function getGeneration(cells, generations) {
       if (currentArr[i + 1] && currentArr[i + 1][j + 1]) {
         neighboursQty++;
       }
-
+      console.log(neighboursQty);
       switch (neighboursQty) {
         case 0:
           nextArr[i][j] = 0;
@@ -84,9 +84,9 @@ function getGeneration(cells, generations) {
         default:
           break;
       }
+      console.log(nextArr);
     }
   }
-  console.log(currentArr, nextArr);
 }
 
 getGeneration(array, 2);
