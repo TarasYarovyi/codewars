@@ -33,7 +33,7 @@ function getGeneration(cells, generations) {
   const nextArr = new Array(5).fill(new Array(5));
 
   for (let i = 0; i < currentArr.length; i++) {
-    for (let j = 0; j < currentArr[i].length; j++) {
+    for (let j = i; j < currentArr[i].length; j++) {
       let neighboursQty = 0;
 
       if (currentArr[i - 1] && currentArr[i - 1][j - 1]) {
@@ -67,22 +67,16 @@ function getGeneration(cells, generations) {
       switch (neighboursQty) {
         case 0:
           nextArr[i][j] = 0;
-          break;
         case 1:
           nextArr[i][j] = 0;
-          break;
         case 2:
           nextArr[i][j] = currentArr[i][j];
-          break;
         case 3:
           nextArr[i][j] = 1;
-          break;
         case 4:
           nextArr[i][j] = 0;
-          break;
 
         default:
-          break;
       }
       console.log(nextArr);
     }
