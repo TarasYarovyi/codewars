@@ -33,7 +33,7 @@ function getGeneration(cells, generations) {
   const nextArr = new Array(5).fill(new Array(5));
 
   for (let i = 0; i < currentArr.length; i++) {
-    for (let j = i; j < currentArr[i].length; j++) {
+    for (let j = 0; j < currentArr[i].length; j++) {
       let neighboursQty = 0;
 
       if (currentArr[i - 1] && currentArr[i - 1][j - 1]) {
@@ -64,20 +64,44 @@ function getGeneration(cells, generations) {
         neighboursQty++;
       }
       console.log(neighboursQty);
-      switch (neighboursQty) {
-        case 0:
-          nextArr[i][j] = 0;
-        case 1:
-          nextArr[i][j] = 0;
-        case 2:
-          nextArr[i][j] = currentArr[i][j];
-        case 3:
-          nextArr[i][j] = 1;
-        case 4:
-          nextArr[i][j] = 0;
+      //   switch (neighboursQty) {
+      //     case 0:
+      //       nextArr[i][j] = 0;
+      //       break;
+      //     case 1:
+      //       nextArr[i][j] = 0;
+      //       break;
+      //     case 2:
+      //       nextArr[i][j] = currentArr[i][j];
+      //       break;
+      //     case 3:
+      //       nextArr[i][j] = 1;
+      //       break;
+      //     case 4:
+      //       nextArr[i][j] = "test";
+      //       break;
+      //     case 5:
+      //       nextArr[i][j] = 0;
+      //       break;
 
-        default:
+      //     default:
+      //       break;
+      //   }
+
+      if (neighboursQty === 0) {
+        nextArr[i][j] = 0;
+      } else if (neighboursQty === 1) {
+        nextArr[i][j] = 0;
+      } else if (neighboursQty === 2) {
+        nextArr[i][j] = currentArr[i][j];
+      } else if (neighboursQty === 3) {
+        nextArr[i][j] = 1;
+      } else if (neighboursQty === 4) {
+        nextArr[i][j] = 0;
+      } else if (neighboursQty === 5) {
+        nextArr[i][j] = 0;
       }
+
       console.log(nextArr);
     }
   }
