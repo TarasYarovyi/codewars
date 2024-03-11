@@ -63,7 +63,7 @@ function getGeneration(cells, generations) {
       if (currentArr[i + 1] && currentArr[i + 1][j + 1]) {
         neighboursQty++;
       }
-      console.log(neighboursQty);
+      //   console.log(neighboursQty);
       //   switch (neighboursQty) {
       //     case 0:
       //       nextArr[i][j] = 0;
@@ -102,9 +102,27 @@ function getGeneration(cells, generations) {
         nextArr[i][j] = 0;
       }
 
-      console.log(nextArr);
+      //   console.log(nextArr);
     }
   }
 }
 
 getGeneration(array, 2);
+
+const testArr = [
+  [1, 2, 3, 4, 5],
+  [6, 7, 8, 9, 10],
+  [11, 12, 13, 14, 15],
+  [16, 17, 18, 19, 20],
+  [21, 22, 23, 24, 25],
+];
+
+function runTest(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      console.log(array[i][j]);
+    }
+  }
+}
+
+runTest(testArr);
