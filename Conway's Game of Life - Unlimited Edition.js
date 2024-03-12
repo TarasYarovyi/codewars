@@ -63,44 +63,44 @@ function getGeneration(cells, generations) {
       if (currentArr[i + 1] && currentArr[i + 1][j + 1]) {
         neighboursQty++;
       }
-      //   console.log(neighboursQty);
-      //   switch (neighboursQty) {
-      //     case 0:
-      //       nextArr[i][j] = 0;
-      //       break;
-      //     case 1:
-      //       nextArr[i][j] = 0;
-      //       break;
-      //     case 2:
-      //       nextArr[i][j] = currentArr[i][j];
-      //       break;
-      //     case 3:
-      //       nextArr[i][j] = 1;
-      //       break;
-      //     case 4:
-      //       nextArr[i][j] = "test";
-      //       break;
-      //     case 5:
-      //       nextArr[i][j] = 0;
-      //       break;
+      console.log(neighboursQty);
+      switch (neighboursQty) {
+        case 0:
+          nextArr[i][j] = 0;
+          break;
+        case 1:
+          nextArr[i][j] = 0;
+          break;
+        case 2:
+          nextArr[i][j] = currentArr[i][j];
+          break;
+        case 3:
+          nextArr[i][j] = 1;
+          break;
+        case 4:
+          nextArr[i][j] = "test";
+          break;
+        case 5:
+          nextArr[i][j] = 0;
+          break;
 
-      //     default:
-      //       break;
-      //   }
-
-      if (neighboursQty === 0) {
-        nextArr[i][j] = 0;
-      } else if (neighboursQty === 1) {
-        nextArr[i][j] = 0;
-      } else if (neighboursQty === 2) {
-        nextArr[i][j] = currentArr[i][j];
-      } else if (neighboursQty === 3) {
-        nextArr[i][j] = 1;
-      } else if (neighboursQty === 4) {
-        nextArr[i][j] = 0;
-      } else if (neighboursQty === 5) {
-        nextArr[i][j] = 0;
+        default:
+          break;
       }
+
+      //   if (neighboursQty === 0) {
+      //     nextArr[i][j] = 0;
+      //   } else if (neighboursQty === 1) {
+      //     nextArr[i][j] = 0;
+      //   } else if (neighboursQty === 2) {
+      //     nextArr[i][j] = currentArr[i][j];
+      //   } else if (neighboursQty === 3) {
+      //     nextArr[i][j] = 1;
+      //   } else if (neighboursQty === 4) {
+      //     nextArr[i][j] = 0;
+      //   } else if (neighboursQty === 5) {
+      //     nextArr[i][j] = 0;
+      //   }
 
       //   console.log(nextArr);
     }
