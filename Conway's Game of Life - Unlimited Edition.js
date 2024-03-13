@@ -30,7 +30,13 @@ function getGeneration(cells, generations) {
     [0, 0, 0, 0, 0],
   ];
 
-  const nextArr = new Array(5).fill(new Array(5));
+  const nextArr = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+  ];
 
   for (let i = 0; i < currentArr.length; i++) {
     for (let j = 0; j < currentArr[i].length; j++) {
@@ -78,7 +84,7 @@ function getGeneration(cells, generations) {
           nextArr[i][j] = 1;
           break;
         case 4:
-          nextArr[i][j] = "test";
+          nextArr[i][j] = 0;
           break;
         case 5:
           nextArr[i][j] = 0;
@@ -88,41 +94,35 @@ function getGeneration(cells, generations) {
           break;
       }
 
-      //   if (neighboursQty === 0) {
-      //     nextArr[i][j] = 0;
-      //   } else if (neighboursQty === 1) {
-      //     nextArr[i][j] = 0;
-      //   } else if (neighboursQty === 2) {
-      //     nextArr[i][j] = currentArr[i][j];
-      //   } else if (neighboursQty === 3) {
-      //     nextArr[i][j] = 1;
-      //   } else if (neighboursQty === 4) {
-      //     nextArr[i][j] = 0;
-      //   } else if (neighboursQty === 5) {
-      //     nextArr[i][j] = 0;
-      //   }
-
-      //   console.log(nextArr);
+      console.log(nextArr);
     }
   }
 }
 
 getGeneration(array, 2);
 
-const testArr = [
-  [1, 2, 3, 4, 5],
-  [6, 7, 8, 9, 10],
-  [11, 12, 13, 14, 15],
-  [16, 17, 18, 19, 20],
-  [21, 22, 23, 24, 25],
-];
+// const testArr = [
+//   [1, 2, 3, 4, 5],
+//   [6, 7, 8, 9, 10],
+//   [11, 12, 13, 14, 15],
+//   [16, 17, 18, 19, 20],
+//   [21, 22, 23, 24, 25],
+// ];
+// const newArr = [
+//   [1, 1, 1, 1, 1],
+//   [1, 1, 1, 1, 1],
+//   [1, 1, 1, 1, 1],
+//   [1, 1, 1, 1, 1],
+//   [1, 1, 1, 1, 1],
+// ];
 
-function runTest(array) {
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[i].length; j++) {
-      console.log(array[i][j]);
-    }
-  }
-}
+// function runTest(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array[i].length; j++) {
+//       newArr[i][j] = 0;
+//       console.log(newArr);
+//     }
+//   }
+// }
 
-runTest(testArr);
+// runTest(testArr);
