@@ -22,51 +22,39 @@ const array = [
 ];
 
 function getGeneration(cells, generations) {
-  const currentArr = [
-    [0, 0, 0, 0, 0],
-    [0, ...cells[0], 0],
-    [0, ...cells[1], 0],
-    [0, ...cells[2], 0],
-    [0, 0, 0, 0, 0],
-  ];
+  const nextArr = [];
 
-  const nextArr = [
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-  ];
+  for (let i = 0; i < cells.length; i++) {
+    for (let j = 0; j < cells[i].length; j++) {
+      for (let k = 0; k < cells[i].length; k++) {}
 
-  for (let i = 0; i < currentArr.length; i++) {
-    for (let j = 0; j < currentArr[i].length; j++) {
       let neighboursQty = 0;
 
-      if (currentArr[i - 1] && currentArr[i - 1][j - 1]) {
+      if (cells[i - 1] && cells[i - 1][j - 1]) {
         neighboursQty++;
       }
-      if (currentArr[i - 1] && currentArr[i - 1][j]) {
+      if (cells[i - 1] && cells[i - 1][j]) {
         neighboursQty++;
       }
-      if (currentArr[i - 1] && currentArr[i - 1][j + 1]) {
-        neighboursQty++;
-      }
-
-      if (currentArr[i] && currentArr[i][j - 1]) {
+      if (cells[i - 1] && cells[i - 1][j + 1]) {
         neighboursQty++;
       }
 
-      if (currentArr[i] && currentArr[i][j + 1]) {
+      if (cells[i] && cells[i][j - 1]) {
         neighboursQty++;
       }
 
-      if (currentArr[i + 1] && currentArr[i + 1][j - 1]) {
+      if (cells[i] && cells[i][j + 1]) {
         neighboursQty++;
       }
-      if (currentArr[i + 1] && currentArr[i + 1][j]) {
+
+      if (cells[i + 1] && cells[i + 1][j - 1]) {
         neighboursQty++;
       }
-      if (currentArr[i + 1] && currentArr[i + 1][j + 1]) {
+      if (cells[i + 1] && cells[i + 1][j]) {
+        neighboursQty++;
+      }
+      if (cells[i + 1] && cells[i + 1][j + 1]) {
         neighboursQty++;
       }
       console.log(neighboursQty);
@@ -78,7 +66,7 @@ function getGeneration(cells, generations) {
           nextArr[i][j] = 0;
           break;
         case 2:
-          nextArr[i][j] = currentArr[i][j];
+          nextArr[i][j] = cells[i][j];
           break;
         case 3:
           nextArr[i][j] = 1;
