@@ -17,3 +17,9 @@ function arrayDiff(a, b) {
     return acc;
   }, []);
 }
+
+//alternative
+
+function array_diff(a, b) {
+  return a.filter((e) => !b.includes(e));
+}
