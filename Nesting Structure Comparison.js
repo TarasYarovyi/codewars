@@ -1,15 +1,32 @@
-let arr1 = [1, [2, 3]];
-const arr2 = [1, [2, 3]];
-let result = 0;
+let first = [1, 1, 1];
+const second = [2, 2, 2];
+let result;
 
 function checkArrays(arrA, arrB) {
-  arrA.forEach((elementA) => {
-    if (elementA.length) {
-      checkArrays(elementA);
+  arrA.forEach((el, index) => {
+    if (Array.isArray(el) && el.length === arrB[index].length) {
+      checkArrays(el, arrB[index]);
+      result = true;
     } else {
-      result += elementA;
+      result = false;
     }
   });
 }
-checkArrays(arr1, arr2);
+
+checkArrays(first, second);
 console.log(result);
+
+// arrA.forEach((elementA) => {
+//     if (elementA.length) {
+//       checkArrays(elementA);
+//     } else {
+//       result += elementA;
+//     }
+
+// if (arrA.length) {
+//     arrA.forEach((el, index) => {
+//       if (arrA[index].length) {
+//         checkArrays(el);
+//       }
+//     });
+//   }
