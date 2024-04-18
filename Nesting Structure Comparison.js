@@ -7,6 +7,8 @@ function checkArrays(arrA, arrB) {
     if (Array.isArray(el) && el.length === arrB[index].length) {
       checkArrays(el, arrB[index]);
       result = true;
+    } else if (!Array.isArray(el) && !Array.isArray(arrB[index])) {
+      result = true;
     } else {
       result = false;
     }
