@@ -6,7 +6,6 @@ function checkArrays(arrA, arrB) {
   for (let index = 0; index < arrA.length; index++) {
     const elementA = arrA[index];
     const elementB = arrB[index];
-    console.log(elementA);
 
     if (Array.isArray(elementA) && elementA.length === elementB.length) {
       result = true;
@@ -15,7 +14,6 @@ function checkArrays(arrA, arrB) {
       result = true;
     } else {
       result = false;
-      break;
     }
   }
 }
