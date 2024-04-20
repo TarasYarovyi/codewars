@@ -23,7 +23,7 @@ Array.prototype.sameStructureAs = function (other) {
     isArray(other) &&
     this.length == other.length &&
     this.every(function (a, i) {
-      var b = other[i];
+      let b = other[i];
       return isArray(a) ? a.sameStructureAs(b) : isArray(a) == isArray(b);
     })
   );
