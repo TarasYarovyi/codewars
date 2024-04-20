@@ -14,6 +14,7 @@ function checkArrays(arrA, arrB) {
       result = true;
     } else {
       result = false;
+      return;
     }
   }
 }
