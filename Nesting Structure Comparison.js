@@ -1,38 +1,30 @@
-let first = [1, [1, 1]];
-const second = [2, [2, 2]];
-let result;
+// https://www.codewars.com/kata/520446778469526ec0000001/train/javascript
+// Complete the function/method (depending on the language) to return true/True when its argument is an array that has the same nesting structures and same corresponding length of nested arrays as the first array.
 
-function checkArrays(arrA, arrB) {
-  for (let index = 0; index < arrA.length; index++) {
-    const elementA = arrA[index];
-    const elementB = arrB[index];
+// For example:
 
-    if (Array.isArray(elementA) && elementA.length === elementB.length) {
-      result = true;
-      checkArrays(elementA, elementB);
-    } else if (!Array.isArray(elementA) && !Array.isArray(elementB)) {
-      result = true;
-    } else {
-      result = false;
-      return;
-    }
-  }
-}
+//  // should return true
+// [ 1, 1, 1 ].sameStructureAs( [ 2, 2, 2 ] );
+// [ 1, [ 1, 1 ] ].sameStructureAs( [ 2, [ 2, 2 ] ] );
 
-checkArrays(first, second);
-console.log(result);
+//  // should return false
+// [ 1, [ 1, 1 ] ].sameStructureAs( [ [ 2, 2 ], 2 ] );
+// [ 1, [ 1, 1 ] ].sameStructureAs( [ [ 2 ], 2 ] );
 
-// arrA.forEach((elementA) => {
-//     if (elementA.length) {
-//       checkArrays(elementA);
-//     } else {
-//       result += elementA;
-//     }
+// // should return true
+// [ [ [ ], [ ] ] ].sameStructureAs( [ [ [ ], [ ] ] ] );
 
-// if (arrA.length) {
-//     arrA.forEach((el, index) => {
-//       if (arrA[index].length) {
-//         checkArrays(el);
-//       }
-//     });
-//   }
+// // should return false
+// [ [ [ ], [ ] ] ].sameStructureAs( [ [ 1, 1 ] ] );
+// For your convenience, there is already a function 'isArray(o)' declared and defined that returns true if its argument is an array, false otherwise.
+
+Array.prototype.sameStructureAs = function (other) {
+  return (
+    isArray(other) &&
+    this.length == other.length &&
+    this.every(function (a, i) {
+      var b = other[i];
+      return isArray(a) ? a.sameStructureAs(b) : isArray(a) == isArray(b);
+    })
+  );
+};
