@@ -17,4 +17,7 @@ function squareSum(numbers) {
   return numbers.reduce((acc, el) => acc + square(el), 0);
 }
 
-console.log(squareSum([1, 2, 2]));
+// or:
+// function squareSum(numbers) {
+//   return numbers.reduce((acc, el) => acc + Math.pow(el, 2), 0);
+// }
