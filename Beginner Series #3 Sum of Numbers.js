@@ -20,3 +20,7 @@ function getSum(a, b) {
   }
   return result;
 }
+
+// or:
+
+// return (a+b) * (Math.max(...arguments) - Math.min(...arguments) + 1) / 2
