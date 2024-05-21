@@ -14,9 +14,9 @@
 
 function getSum(a, b) {
   let result = 0;
-  for (let curr = a; curr <= b; curr++) {
-    result += curr;
+
+  for (let i = Math.min(...arguments); i <= Math.max(...arguments); i++) {
+    result += i;
   }
   return result;
 }
-console.log(getSum(0, -1));
