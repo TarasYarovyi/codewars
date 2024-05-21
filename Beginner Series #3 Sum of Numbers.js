@@ -12,14 +12,11 @@
 // (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
 // Your function should only return a number, not the explanation about how you get that number.
 
-// function getSum(a, b) {
-//   const arr = [];
-//   arr[a] = null;
-//   arr[b] = null;
-//   let result = 0;
-//   for (let index = a; index <= b; index++) {
-//     result++;
-//   }
-//   return result;
-// }
-// console.log(getSum(1, 5));
+function getSum(a, b) {
+  let result = 0;
+  for (let curr = a; curr <= b; curr++) {
+    result += curr;
+  }
+  return result;
+}
+console.log(getSum(0, -1));
