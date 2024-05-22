@@ -23,4 +23,4 @@ function getSum(a, b) {
 
 // or:
 
-// return (a+b) * (Math.max(...arguments) - Math.min(...arguments) + 1) / 2
+// return (a + b) * (Math.max(...arguments) - Math.min(...arguments) + 1) / 2
