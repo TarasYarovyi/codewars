@@ -16,3 +16,6 @@
 const stringToNumber = function (str) {
   return +str;
 };
+
+// or
+// return parseInt(str);
