@@ -9,3 +9,15 @@
 // "Dermatoglyphics" --> true
 // "aba" --> false
 // "moOse" --> false (ignore letter case)
+
+function isIsogram(str) {
+  let result = true;
+  for (let index = 0; index < str.length; index++) {
+    const regexp = new RegExp(`${str[index]}`, `gim`);
+    if (str.match(regexp).length > 1) {
+      result = false;
+      break;
+    }
+  }
+  return result;
+}
