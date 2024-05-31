@@ -6,3 +6,8 @@
 // Examples
 // "This is an example!" ==> "sihT si na !elpmaxe"
 // "double  spaces"      ==> "elbuod  secaps"
+function reverseWords(str) {
+  return str.replace(/(\w+)/g, (str) => str.split("").reverse().join(""));
+}
+
+console.log(reverseWords("double  spaces"));
