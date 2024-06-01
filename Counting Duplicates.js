@@ -21,3 +21,8 @@ function duplicateCount(text) {
     return acc;
   }, 0);
 }
+
+// or
+// function duplicateCount(text){
+//     return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+//   }
