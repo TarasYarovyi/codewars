@@ -13,7 +13,11 @@
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
 function duplicateCount(text) {
-  return new Set(text).size;
+  const set = new Set(text.toLowerCase()).values();
+  return [...set].reduce((acc, el) => {
+    if (text.match(new RegExp(el, "gi")).length > 1) {
+      acc++;
+    }
+    return acc;
+  }, 0);
 }
-
-console.log(duplicateCount("Indivisibilities"));
