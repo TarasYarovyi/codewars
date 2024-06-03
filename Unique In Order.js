@@ -18,4 +18,6 @@ function uniqueInOrder(iterable) {
   }
   return result;
 }
-console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+
+// or
+// return [...iterable].filter((a, i) => a !== iterable[i-1])
