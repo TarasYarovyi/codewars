@@ -16,5 +16,12 @@
 // * Input: [2,2,1,2,1], output = [2,2,2,1]
 
 function removeSmallest(numbers) {
-  return [];
+  const result = numbers;
+  result.splice(
+    numbers.findIndex((el) => el === Math.min(...numbers)),
+    1
+  );
+  return result;
 }
+
+console.log(removeSmallest([5, 2, 1, 4]));
