@@ -29,3 +29,12 @@
 
 // Note
 // If you are given an array with multiple answers, return the lowest correct index.
+
+function findEvenIndex(arr) {
+  return arr.findIndex((el, index, arr) => {
+    return (
+      arr.slice(0, index).reduce((acc, curr) => acc + curr, 0) ===
+      arr.slice(index + 1, arr.length).reduce((acc, curr) => acc + curr, 0)
+    );
+  });
+}
