@@ -1,5 +1,6 @@
 // Find the unique number
 // https://www.codewars.com/kata/585d7d5adb20cf33cb000235/train/javascript
+
 // There is an array with some numbers. All numbers are equal except for one. Try to find it!
 
 // findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
@@ -14,4 +15,12 @@
 // Find the unique string
 // Find The Unique
 
-function findUniq(arr) {}
+function findUniq(arr) {
+  return arr.find((el, index) => {
+    return (
+      el !== (arr[index - 1] || arr[arr.length - 1]) &&
+      el !== (arr[index + 1] || arr[0])
+    );
+  });
+}
+console.log(findUniq([1, 0, 0]));
