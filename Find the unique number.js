@@ -16,11 +16,9 @@
 // Find The Unique
 
 function findUniq(arr) {
-  return arr.find((el, index) => {
-    return (
-      el !== (arr[index - 1] || arr[arr.length - 1]) &&
-      el !== (arr[index + 1] || arr[0])
-    );
-  });
+  return arr.find(
+    (el, index) =>
+      el !== (arr[index - 1] ?? arr[arr.length - 1]) &&
+      el !== (arr[index + 1] ?? arr[0])
+  );
 }
-console.log(findUniq([1, 0, 0]));
