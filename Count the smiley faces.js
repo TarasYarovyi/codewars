@@ -21,6 +21,6 @@
 // //return the total number of smiling faces in the array
 
 function countSmileys(arr) {
-  return arr.filter((face) => /\:\)/.test(face));
+  return arr.filter((face) => /([:;]{1})([-~]?)([)D]{1})/.test(face)).length;
 }
-console.log(countSmileys([":)", ";(", ";}", ":-D"]));
+console.log(countSmileys([";]", ":[", ";*", ":$", ";-D"]));
