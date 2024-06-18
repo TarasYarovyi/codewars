@@ -18,11 +18,13 @@ function primeFactors(n) {
   const result = [];
   let i = 2;
 
-  while (n % i === 0) {
-    n = n / i;
-    result.push(i);
+  while (n > 1) {
+    if (n % i === 0) {
+      n = n / i;
+      result.push(i);
+    } else i++;
   }
   return result;
 }
 
-console.log(primeFactors(122));
+console.log(primeFactors(8));
