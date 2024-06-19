@@ -13,8 +13,12 @@
 // [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 function findOdd(A) {
   return A.find(
-    (elToFind) =>
-      A.filter((elToFilter) => elToFilter === elToFind).length % 2 > 0
+    (elToFind) => A.filter((elToFilter) => elToFilter === elToFind).length % 2
   );
 }
 console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
+
+// or
+// function findOdd(A) {
+//     return A.reduce((acc, curr) => acc ^ curr);
+//   }
