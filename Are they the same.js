@@ -27,5 +27,14 @@
 // If a or b are nil (or null or None, depending on the language), the problem doesn't make sense so return false.
 
 function comp(array1, array2) {
-  //your code here
+  return array2.every((array2El) =>
+    array1.some((array1El) => Math.pow(array1El, 2) === array2El)
+  );
 }
+
+console.log(
+  comp(
+    [121, 144, 19, 161, 19, 144, 19, 11],
+    [121, 14641, 20736, 361, 25921, 361, 20736, 361]
+  )
+);
