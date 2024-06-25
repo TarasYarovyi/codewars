@@ -27,10 +27,13 @@
 // If a or b are nil (or null or None, depending on the language), the problem doesn't make sense so return false.
 
 function comp(array1, array2) {
-  if (array1 && array2 && array1.length && array2.length)
+  if (array1 && array2 && array1.length && array2.length) {
     return array2.every((array2El) =>
       array1.some((array1El) => Math.pow(array1El, 2) === array2El)
     );
+  } else {
+    return false;
+  }
 }
 
 console.log(
