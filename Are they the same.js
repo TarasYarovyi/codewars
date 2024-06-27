@@ -35,7 +35,3 @@ function comp(array1, array2) {
     return false;
   }
 }
-
-console.log(comp([2, 2, 3], [4, 9, 9]));
-console.log(comp([], []));
-console.log(comp(null, []));
