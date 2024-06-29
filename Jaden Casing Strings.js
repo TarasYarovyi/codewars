@@ -10,8 +10,10 @@
 // Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 // Link to Jaden's former Twitter account @officialjaden via archive.org
 String.prototype.toJadenCase = function () {
-  return this.replace(/\b[a-z](?=[a-z]{2})/gi, function (letter) {
-    return letter.toUpperCase();
-  });
+  return this.replace(/(?<!\')\b[a-z]/gi, (letter) => letter.toUpperCase());
 };
-console.log("hor ghj".toJadenCase());
+
+console.log(
+  "trees are never sad look at them every once in awhile they're quite beautiful.".toJadenCase()
+);
+console.log("How can mirrors be real if our eyes aren't real".toJadenCase());
