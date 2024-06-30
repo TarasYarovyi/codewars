@@ -14,5 +14,10 @@
 // Output string must be two numbers separated by a single space, and highest number is first.
 
 function highAndLow(numbers) {
-  // ...
+  numbers = numbers.split(" ");
+  const max = Math.max(...numbers);
+  const min = Math.min(...numbers);
+  return `${max} ${min}`;
 }
+
+console.log(highAndLow("1 9 3 4 -5"));
