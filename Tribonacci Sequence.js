@@ -20,5 +20,11 @@
 // [Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]
 
 function tribonacci(signature, n) {
-  //your code here
+  const result = signature;
+  if (n < 3) result.length = n;
+  for (let i = 0; result.length < n; i++) {
+    result.push(result[i] + result[i + 1] + result[i + 2]);
+  }
+  return result;
 }
+console.log(tribonacci([1, 1, 1], 0));
