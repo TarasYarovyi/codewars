@@ -18,10 +18,11 @@
 // eight(dividedBy(three()));
 
 function zero(...args) {
+  const number = 0;
   if (args.length) {
-    return args[0];
+    return number + args[0].operation + args[0].number;
   } else {
-    return 0;
+    return number;
   }
 }
 function one() {
@@ -38,9 +39,12 @@ function seven() {}
 function eight() {}
 function nine() {}
 
-function plus(...args) {
-  return this;
-}
+const plus = (n) => {
+  return {
+    number: n,
+    operation: "+",
+  };
+};
 
 function minus() {}
 function times() {}
