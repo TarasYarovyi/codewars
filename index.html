@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function zero(...args) {
+        if (args.length) {
+          return args[0];
+        } else {
+          return 0;
+        }
+      }
+      function one() {
+        return 1;
+      }
+      function two() {
+        return 2;
+      }
+      function three() {}
+      function four() {}
+      function five() {}
+      function six() {}
+      function seven() {}
+      function eight() {}
+      function nine() {}
+
+      function plus() {
+        return [...args];
+      }
+
+      function minus() {}
+      function times() {}
+      function dividedBy() {}
+
+      console.log(zero(plus(one())));
+    </script>
+  </body>
+</html>

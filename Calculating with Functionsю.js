@@ -17,9 +17,19 @@
 // Division should be integer division. For example, this should return 2, not 2.666666...:
 // eight(dividedBy(three()));
 
-function zero() {}
-function one() {}
-function two() {}
+function zero(...args) {
+  if (args.length) {
+    return args[0];
+  } else {
+    return 0;
+  }
+}
+function one() {
+  return 1;
+}
+function two() {
+  return 2;
+}
 function three() {}
 function four() {}
 function five() {}
@@ -28,7 +38,12 @@ function seven() {}
 function eight() {}
 function nine() {}
 
-function plus() {}
+function plus(...args) {
+  return this;
+}
+
 function minus() {}
 function times() {}
 function dividedBy() {}
+
+console.log(zero(plus(one())));
