@@ -17,37 +17,97 @@
 // Division should be integer division. For example, this should return 2, not 2.666666...:
 // eight(dividedBy(three()));
 
-function zero(...args) {
-  const number = 0;
-  if (args.length) {
-    return number + args[0].operation + args[0].number;
-  } else {
-    return number;
-  }
+//to avoid using not safety eval()
+function evaluate(expression) {
+  const func = new Function("return " + expression);
+  return func();
 }
-function one() {
-  return 1;
-}
-function two() {
-  return 2;
-}
-function three() {}
-function four() {}
-function five() {}
-function six() {}
-function seven() {}
-function eight() {}
-function nine() {}
 
-const plus = (n) => {
+function zero(operation) {
+  const number = 0;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function one(operation) {
+  const number = 1;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function two(operation) {
+  const number = 2;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function three(operation) {
+  const number = 3;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function four(operation) {
+  const number = 4;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function five(operation) {
+  const number = 5;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function six(operation) {
+  const number = 6;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function seven(operation) {
+  const number = 7;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function eight(operation) {
+  const number = 8;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+function nine(operation) {
+  const number = 9;
+  return operation
+    ? evaluate(operation.operand + operation.operator + number)
+    : number;
+}
+
+const plus = (operand) => {
   return {
-    number: n,
-    operation: "+",
+    operand: operand,
+    operator: "+",
   };
 };
 
-function minus() {}
-function times() {}
-function dividedBy() {}
+function minus(operand) {
+  return {
+    operand: operand,
+    operator: "-",
+  };
+}
+function times(operand) {
+  return {
+    operand: operand,
+    operator: "*",
+  };
+}
+function dividedBy(operand) {
+  return {
+    operand: operand,
+    operator: "/",
+  };
+}
 
-console.log(zero(plus(one())));
+console.log(seven(plus(seven())));
