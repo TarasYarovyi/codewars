@@ -23,65 +23,41 @@ function evaluate(expression) {
   return func();
 }
 
-function zero(operation) {
-  const number = 0;
+function run(operation, number) {
   return operation
-    ? evaluate(operation.operand + operation.operator + number)
+    ? Math.floor(evaluate(number + operation.operator + operation.operand))
     : number;
+}
+
+function zero(operation) {
+  return run(operation, 0);
 }
 function one(operation) {
-  const number = 1;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 1);
 }
 function two(operation) {
-  const number = 2;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 2);
 }
 function three(operation) {
-  const number = 3;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 3);
 }
 function four(operation) {
-  const number = 4;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 4);
 }
 function five(operation) {
-  const number = 5;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 5);
 }
 function six(operation) {
-  const number = 6;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 6);
 }
 function seven(operation) {
-  const number = 7;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 7);
 }
 function eight(operation) {
-  const number = 8;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 8);
 }
 function nine(operation) {
-  const number = 9;
-  return operation
-    ? evaluate(operation.operand + operation.operator + number)
-    : number;
+  return run(operation, 9);
 }
 
 const plus = (operand) => {
@@ -110,4 +86,4 @@ function dividedBy(operand) {
   };
 }
 
-console.log(seven(plus(seven())));
+console.log(three(dividedBy(nine())));
