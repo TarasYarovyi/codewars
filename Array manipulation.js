@@ -2,25 +2,13 @@
 
 function arrayManipulation(n, queries) {
   const arr = Array(n).fill(0);
-  const queriesLength = queries.length;
-  let i = 0;
 
-  while (i < queriesLength) {
+  for (let i = queries.length - 1; i >= 0; i--) {
     const query = queries[i];
-    const end = query[1] - 1;
-    let j = query[0] - 1;
-    while (j <= end) {
+    for (let j = query[0] - 1, end = query[1] - 1; j <= end; j++) {
       arr[j] += query[2];
-      ++j;
     }
-    ++i;
   }
-
-  // queries.forEach((query) => {
-  //   for (let i = query[0] - 1; i <= query[1] - 1; i++) {
-  //     arr[i] += query[2];
-  //   }
-  // });
 
   return Math.max(...arr);
 }
