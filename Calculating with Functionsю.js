@@ -18,72 +18,89 @@
 // eight(dividedBy(three()));
 
 //to avoid using not safety eval()
-function evaluate(expression) {
-  const func = new Function("return " + expression);
-  return func();
-}
+// function evaluate(expression) {
+//   const func = new Function("return " + expression);
+//   return func();
+// }
 
-function run(operation, number) {
-  return operation
-    ? Math.floor(evaluate(number + operation.operator + operation.operand))
-    : number;
-}
+// function run(operation, number) {
+//   return operation
+//     ? Math.floor(evaluate(number + operation.operator + operation.operand))
+//     : number;
+// }
 
-function zero(operation) {
-  return run(operation, 0);
-}
-function one(operation) {
-  return run(operation, 1);
-}
-function two(operation) {
-  return run(operation, 2);
-}
-function three(operation) {
-  return run(operation, 3);
-}
-function four(operation) {
-  return run(operation, 4);
-}
-function five(operation) {
-  return run(operation, 5);
-}
-function six(operation) {
-  return run(operation, 6);
-}
-function seven(operation) {
-  return run(operation, 7);
-}
-function eight(operation) {
-  return run(operation, 8);
-}
-function nine(operation) {
-  return run(operation, 9);
-}
+// function zero(operation) {
+//   return run(operation, 0);
+// }
+// function one(operation) {
+//   return run(operation, 1);
+// }
+// function two(operation) {
+//   return run(operation, 2);
+// }
+// function three(operation) {
+//   return run(operation, 3);
+// }
+// function four(operation) {
+//   return run(operation, 4);
+// }
+// function five(operation) {
+//   return run(operation, 5);
+// }
+// function six(operation) {
+//   return run(operation, 6);
+// }
+// function seven(operation) {
+//   return run(operation, 7);
+// }
+// function eight(operation) {
+//   return run(operation, 8);
+// }
+// function nine(operation) {
+//   return run(operation, 9);
+// }
 
-const plus = (operand) => {
-  return {
-    operand: operand,
-    operator: "+",
-  };
-};
+// const plus = (operand) => {
+//   return {
+//     operand: operand,
+//     operator: "+",
+//   };
+// };
 
-function minus(operand) {
-  return {
-    operand: operand,
-    operator: "-",
-  };
-}
-function times(operand) {
-  return {
-    operand: operand,
-    operator: "*",
-  };
-}
-function dividedBy(operand) {
-  return {
-    operand: operand,
-    operator: "/",
-  };
-}
+// function minus(operand) {
+//   return {
+//     operand: operand,
+//     operator: "-",
+//   };
+// }
+// function times(operand) {
+//   return {
+//     operand: operand,
+//     operator: "*",
+//   };
+// }
+// function dividedBy(operand) {
+//   return {
+//     operand: operand,
+//     operator: "/",
+//   };
+// }
 
-console.log(three(dividedBy(nine())));
+//Alternative:
+const zero = (func) => (func ? func(0) : 0);
+const one = (func) => (func ? func(1) : 1);
+const two = (func) => (func ? func(2) : 2);
+const three = (func) => (func ? func(3) : 3);
+const four = (func) => (func ? func(4) : 4);
+const five = (func) => (func ? func(5) : 5);
+const six = (func) => (func ? func(6) : 6);
+const seven = (func) => (func ? func(7) : 7);
+const eight = (func) => (func ? func(8) : 8);
+const nine = (func) => (func ? func(9) : 9);
+
+const plus = (x) => (num) => num + x;
+const minus = (x) => (num) => num - x;
+const times = (x) => (num) => num * x;
+const dividedBy = (x) => (num) => ~~(num / x);
+
+console.log(two(dividedBy(one())));
