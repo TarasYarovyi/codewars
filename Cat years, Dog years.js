@@ -26,6 +26,23 @@
 // +5 dog years for each year after that
 
 function humanYearsCatYearsDogYears(humanYears) {
-  // Your code here!
-  return [0, 0, 0];
+  let catYears, dogYears;
+  switch (humanYears) {
+    case 1:
+      [catYears, dogYears] = [15, 15];
+      break;
+    case 2:
+      [catYears, dogYears] = [24, 24];
+      break;
+
+    default:
+      catYears = 24 + (humanYears - 2) * 4;
+      dogYears = 24 + (humanYears - 2) * 5;
+
+      break;
+  }
+
+  return [humanYears, catYears, dogYears];
 }
+
+console.log(humanYearsCatYearsDogYears(10));
