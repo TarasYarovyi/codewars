@@ -6,5 +6,27 @@
 // Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
 
 function isValidWalk(walk) {
-  //insert brilliant code here
+  return (
+    walk.reduce((acc, curr) => {
+      switch (curr) {
+        case "n":
+          acc++;
+          break;
+        case "s":
+          acc--;
+          break;
+        case "e":
+          acc++;
+          break;
+        case "w":
+          acc--;
+          break;
+        default:
+          break;
+      }
+      return acc;
+    }, 0) === 0
+  );
 }
+
+console.log(isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]));
