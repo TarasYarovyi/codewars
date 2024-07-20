@@ -10,16 +10,16 @@ function isValidWalk(walk) {
     (acc, curr) => {
       switch (curr) {
         case "n":
-          acc.point++;
+          acc.ns++;
           break;
         case "s":
-          acc.point--;
+          acc.ns--;
           break;
         case "e":
-          acc.point++;
+          acc.ew++;
           break;
         case "w":
-          acc.point--;
+          acc.ew--;
           break;
         default:
           break;
@@ -27,10 +27,10 @@ function isValidWalk(walk) {
       acc.time++;
       return acc;
     },
-    { point: 0, time: 0 }
+    { ns: 0, ew: 0, time: 0 }
   );
-  console.log(result.point, result.time);
-  return result.point === 0 && result.time === 10;
+
+  return result.ns === 0 && result.ew === 0 && result.time === 10;
 }
 
 console.log(isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]));
