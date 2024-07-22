@@ -21,4 +21,12 @@
 //   "***********"
 // ]
 
-function towerBuilder(nFloors) {}
+function towerBuilder(nFloors) {
+  const tower = ["*"];
+  for (let i = 0; tower.length < nFloors; i++) {
+    tower[i + 1] = " *" + tower[i].trim() + "* ";
+  }
+  return tower;
+}
+
+console.log(towerBuilder(6));
