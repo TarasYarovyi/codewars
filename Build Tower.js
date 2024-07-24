@@ -22,10 +22,10 @@
 // ]
 
 function towerBuilder(nFloors) {
-  const tower = [" *********** "];
+  const tower = ["*".repeat(nFloors * 2 - 1)];
 
   for (let i = 0; i < nFloors - 1; i++) {
-    tower.unshift(tower[0].replace(/(\s|^)\*|\*(\s|$)/gm, "  "));
+    tower.unshift(tower[0].replace(/(\s|^)\*|\*(\s|$)/gm, "$1 $2"));
   }
   return tower;
 }
