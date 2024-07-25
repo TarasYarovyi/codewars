@@ -12,4 +12,8 @@
 
 // All letters will be lowercase and all inputs will be valid.
 
-function high(x) {}
+function high(x) {
+  return x.split(" ").reduce((acc, curr) => {});
+  return "abc".charCodeAt();
+}
+console.log(high("abc"));
