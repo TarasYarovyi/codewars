@@ -13,7 +13,16 @@
 // All letters will be lowercase and all inputs will be valid.
 
 function high(x) {
-  return x.split(" ").reduce((acc, curr) => {});
-  return "abc".charCodeAt();
+  function countScore(string) {
+    let sum = 0;
+    for (let i = 0; i < string.length; i++) {
+      sum += string.charCodeAt(i) - 96;
+    }
+    return sum;
+  }
+
+  return x.split(" ").reduce((acc, curr) => {
+    return countScore(curr) > countScore(acc) ? curr : acc;
+  });
 }
-console.log(high("abc"));
+console.log(high("what time are we climbing up the volcano"));
