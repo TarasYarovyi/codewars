@@ -26,5 +26,14 @@
 // (Condition 2) not fulfilled).
 
 function bouncingBall(h, bounce, window) {
-  // your code here
+  if (h <= 0 || bounce >= 1 || bounce <= 0 || window >= h) return -1;
+
+  let count = 0;
+  while (h > window) {
+    h * bounce > window ? (count += 2) : (count += 1);
+    h *= bounce;
+  }
+  return count;
 }
+
+console.log(bouncingBall(3.0, 0.66, 1.5));
