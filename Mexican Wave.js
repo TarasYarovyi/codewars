@@ -15,17 +15,11 @@
 // wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
 
 function wave(str) {
-  let i = 0;
-  let regex = /\S/g;
-  const result = [];
-  while (i < str.length) {
-    i++;
-    let indexToUp = regex.exec(str).index;
-    if (indexToUp != null) {
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
       result.push(
-        str.substring(0, indexToUp) +
-          str[indexToUp].toUpperCase() +
-          str.substring(indexToUp + 1)
+        str.substring(0, i) + str[i].toUpperCase() + str.substring(i + 1)
       );
     }
   }
