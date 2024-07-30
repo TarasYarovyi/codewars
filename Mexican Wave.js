@@ -18,14 +18,16 @@ function wave(str) {
   let i = 0;
   let regex = /\S/g;
   const result = [];
-  while (i < str.length - 1) {
+  while (i < str.length) {
     i++;
     let indexToUp = regex.exec(str).index;
-    result.push(
-      str.substring(0, indexToUp) +
-        str[indexToUp].toUpperCase() +
-        str.substring(indexToUp + 1)
-    );
+    if (indexToUp != null) {
+      result.push(
+        str.substring(0, indexToUp) +
+          str[indexToUp].toUpperCase() +
+          str.substring(indexToUp + 1)
+      );
+    }
   }
   return result;
 }
