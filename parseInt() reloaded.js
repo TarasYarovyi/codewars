@@ -40,6 +40,8 @@ function parseInt(string) {
       nineteen: 19,
     },
   };
-  return dictionary.units;
+  return dictionary.units[string];
+  if (dictionary.units[string]) {
+  }
 }
-console.log(parseInt());
+console.log(parseInt("fifteen"));
