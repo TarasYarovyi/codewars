@@ -17,6 +17,7 @@
 // All tested numbers are valid, you don't need to validate them
 
 function parseInt(string) {
+  let result = [];
   const dictionary = {
     units: {
       zero: 0,
@@ -43,11 +44,15 @@ function parseInt(string) {
   };
 
   if (dictionary.units[string]) {
-    return dictionary.units[string];
+    result = dictionary.units[string];
   }
-  const result = [];
+
   if (/million/.test(string)) {
-    return 1000000;
+    result = 1000000;
   }
+  if (/hundred.+thousand/.test(string)) {
+    result.length = 6;
+  }
+  return result;
 }
 console.log(parseInt("one million"));
