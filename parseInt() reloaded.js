@@ -19,6 +19,7 @@
 function parseInt(string) {
   const dictionary = {
     units: {
+      zero: 0,
       one: 1,
       two: 2,
       three: 3,
@@ -40,8 +41,13 @@ function parseInt(string) {
       nineteen: 19,
     },
   };
-  return dictionary.units[string];
+
   if (dictionary.units[string]) {
+    return dictionary.units[string];
+  }
+  const result = [];
+  if (/million/.test(string)) {
+    return 1000000;
   }
 }
-console.log(parseInt("fifteen"));
+console.log(parseInt("one million"));
