@@ -50,8 +50,11 @@ function parseInt(string) {
   if (/million/.test(string)) {
     result = 1000000;
   }
-  if (/hundred.+thousand/.test(string)) {
+  if (/(?=hundred).+thousand/.test(string)) {
     result.length = 6;
+  }
+  if (!/(?=hundred).+thousand/.test(string)) {
+    result.length = 5;
   }
   return result;
 }
