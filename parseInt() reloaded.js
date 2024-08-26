@@ -55,4 +55,6 @@ function parseInt(string) {
   }
   return result;
 }
-console.log(parseInt("one million"));
+console.log(
+  parseInt("seven hundred eighty-three thousand nine hundred and nineteen")
+);
