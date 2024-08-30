@@ -53,7 +53,8 @@ function parseInt(string) {
   if (/(?=hundred).+thousand/.test(string)) {
     result.length = 6;
   }
-  if (!/(?=hundred).+thousand/.test(string)) {
+
+  if (/\-.+thousand/.test(string)) {
     result.length = 5;
   }
   return result;
